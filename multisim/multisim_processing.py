@@ -47,4 +47,4 @@ def dec_to_hex(num, int_bits, dec_bits):
     return hex(int(result, 2)).replace('0x', '')
 
 
-process("Acondicionamiento.scp", "Acondicionamiento.mif", 40000, 0.5, 7, 8)
+process("Acondicionamiento4.scp", "Acondicionamiento.mif", 40000, 0.5, 7, 8)
