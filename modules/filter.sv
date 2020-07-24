@@ -4,9 +4,9 @@ module filter(input logic clk, rst,
 					
 logic[15:0] offset, w1, w2, a1w, b0w, b1w;
 
-adder Adder0(x, 'b1000001010000000, offset);
+adder Adder0(x, 16'b1000001010000000, offset);
 
-multiply Multiply1({(a1[15] ^ 1), a1[14:0]}, w1, a1w);
+multiply Multiply1({(a1[15] ^ 1'b1), a1[14:0]}, w1, a1w);
 
 adder Adder1(offset, a1w, w2);
 
