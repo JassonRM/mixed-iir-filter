@@ -11,7 +11,7 @@ def process(osc_path, output_path, sampling_rate, runtime, int_bits, dec_bits):
             line = reader.readline()
             addr = 0
 
-            writer.write("DEPTH = 20000; \nWIDTH = 16; \nADDRESS_RADIX = DEC; \nDATA_RADIX = HEX; \nCONTENT \nBEGIN;\n")
+            writer.write("DEPTH = 20000; \nWIDTH = 32; \nADDRESS_RADIX = DEC; \nDATA_RADIX = HEX; \nCONTENT \nBEGIN\n")
 
             while line != '':  # The EOF char is an empty string
                 data = line.split()
@@ -44,7 +44,10 @@ def dec_to_hex(num, int_bits, dec_bits):
         temp = int(dec_part)
         result += str(temp)
         dec_part -= temp
-    return hex(int(result, 2)).replace('0x', '')
+    result = hex(int(result, 2)).replace('0x', '')
+    zeros = (int_bits + dec_bits + 1) // 4 - len(result)
+    result = zeros * '0' + result
+    return result
 
 
-process("Acondicionamiento4.scp", "Acondicionamiento.mif", 40000, 0.5, 7, 8)
+process("Acondicionamiento4.scp", "Acondicionamiento.mif", 40000, 0.5, 15, 16)
