@@ -2,7 +2,7 @@ module adder_test();
 
 logic [15:0] inputA, inputB, result;
 
-adder DUT(inputA, inputB, result);
+adder #(15) DUT(inputA, inputB, result);
 
 initial begin
 	inputA = 16'b0000000110000000;

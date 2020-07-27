@@ -3,7 +3,7 @@
 module top_test;
 
 logic clk, rst, filter_rst;
-logic[15:0] low_pass, high_pass;
+logic[31:0] low_pass, high_pass;
 
 top DUT(clk, rst, filter_rst, low_pass, high_pass);
 

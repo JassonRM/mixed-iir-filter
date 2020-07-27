@@ -1,27 +1,27 @@
-module adder(input logic[15:0] inputA, inputB,
-				output logic[15:0] result);
+module adder #(parameter WIDTH=31)(input logic[WIDTH:0] inputA, inputB,
+				output logic[WIDTH:0] result);
 				
 
-logic [14:0] operA, operB;
-logic [14:0] sum;
+logic [WIDTH-1:0] operA, operB;
+logic [WIDTH-1:0] sum;
 
-assign operA = inputA[14:0];
-assign operB = inputB[14:0];
+assign operA = inputA[WIDTH-1:0];
+assign operB = inputB[WIDTH-1:0];
 
 always_comb
-	if (inputA[15] == inputB[15])
+	if (inputA[WIDTH] == inputB[WIDTH])
 		begin
 			sum = operA + operB;
-			result = {inputA[15], sum};
+			result = {inputA[WIDTH], sum};
 		end
 	else
 		begin
-			if(inputA[15])
+			if(inputA[WIDTH])
 				sum = operB - operA;
 			else
 				sum = operA - operB;
 			
-			if(sum[14])
+			if(sum[WIDTH-1])
 				result = {1'b1, ~sum + 1'b1};
 			else
 				result = {1'b0, sum};

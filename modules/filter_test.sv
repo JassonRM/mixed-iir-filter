@@ -3,7 +3,7 @@ module filter_test;
 logic clk, rst;
 logic[15:0] x, a1, b0, b1, y;
 
-filter DUT(clk, rst, x, a1, b0, b1, y);
+filter #(15) DUT(clk, rst, x, a1, b0, b1, y);
 
 initial begin
 	clk = 0;
@@ -14,9 +14,9 @@ initial begin
 	b1 = 16'b0000000000010110;
 	
 	#15 rst = 0;
-	#10 assert(y === 16'b0000000000001011) else $error("Op 1 failed");
+	#10 assert(y === 16'b0000001010001011) else $error("Op 1 failed");
 	#5 x = 16'b0000001100110011;
-	#15 assert(y === 16'b0000000000100011) else $error("Op 2 failed");
+	#15 assert(y === 16'b0000001010100011) else $error("Op 2 failed");
 	end
 
 always

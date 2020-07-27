@@ -2,7 +2,7 @@ module multiply_test();
 
 logic [15:0] inputA, inputB, result;
 
-multiply DUT(inputA, inputB, result);
+multiply #(15) DUT(inputA, inputB, result);
 
 initial begin
 	inputA = 16'b0000000110000000;

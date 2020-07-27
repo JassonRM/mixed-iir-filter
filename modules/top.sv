@@ -1,15 +1,15 @@
 module top(input logic clk, rst, filter_rst,
-				output logic[15:0] low_pass, high_pass);
+				output logic[31:0] low_pass, high_pass);
 				
 
 logic[14:0] address;
-logic[15:0] x;
-				
+logic[22:0] x;
+		
 rom ROM(address, clk, x);
 				
-filter LowPass(clk, filter_rst, x, 16'b1000000011111000, 16'b0000000000000011, 16'b0000000000000011, low_pass);
+filter LowPass(clk, filter_rst, {9'b0, x}, 32'b10000000000000001111100000010101, 32'b1111110101, 32'b1111110101, low_pass);
 
-filter HighPass(clk, filter_rst, x, 16'b1000000011111000, 16'b0000000011111100, 16'b1000000011111100, high_pass);
+filter HighPass(clk, filter_rst, {9'b0, x}, 32'b10000000000000001111100000010101, 32'b1111110000001010, 32'b100000000000000001111110000001010, high_pass);
 
 always_ff @(posedge clk)
 	if(rst)
