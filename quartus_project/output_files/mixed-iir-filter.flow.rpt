@@ -1,5 +1,5 @@
 Flow report for mixed-iir-filter
-Thu Jul 23 18:44:12 2020
+Mon Jul 27 10:19:02 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,10 +41,10 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------+
 ; Flow Summary                                                              ;
 +-----------------------------+---------------------------------------------+
-; Flow Status                 ; Successful - Thu Jul 23 18:44:12 2020       ;
+; Flow Status                 ; Successful - Mon Jul 27 10:19:02 2020       ;
 ; Quartus Prime Version       ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name               ; mixed-iir-filter                            ;
-; Top-level Entity Name       ; top_test                                    ;
+; Top-level Entity Name       ; top_pwm_test                                ;
 ; Family                      ; Cyclone V                                   ;
 ; Device                      ; 5CSEMA5F31C6                                ;
 ; Timing Models               ; Final                                       ;
@@ -63,26 +63,30 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 07/23/2020 18:44:00 ;
+; Start date & time ; 07/27/2020 10:18:51 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; mixed-iir-filter    ;
 +-------------------+---------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                               ;
-+-------------------------------------+----------------------------------------+------------------+-------------+----------------+
-; Assignment Name                     ; Value                                  ; Default Value    ; Entity Name ; Section Id     ;
-+-------------------------------------+----------------------------------------+------------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 929347560417.159555144021776           ; --               ; --          ; --             ;
-; EDA_OUTPUT_DATA_FORMAT              ; Systemverilog Hdl                      ; --               ; --          ; eda_simulation ;
-; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (SystemVerilog)        ; <None>           ; --          ; --             ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --               ; top_test    ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --               ; top_test    ; Top            ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --               ; top_test    ; Top            ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --               ; --          ; --             ;
-; TOP_LEVEL_ENTITY                    ; top_test                               ; mixed-iir-filter ; --          ; --             ;
-+-------------------------------------+----------------------------------------+------------------+-------------+----------------+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                ;
++-------------------------------------+----------------------------------------+------------------+--------------+----------------+
+; Assignment Name                     ; Value                                  ; Default Value    ; Entity Name  ; Section Id     ;
++-------------------------------------+----------------------------------------+------------------+--------------+----------------+
+; COMPILER_SIGNATURE_ID               ; 929347560417.159586673116632           ; --               ; --           ; --             ;
+; EDA_OUTPUT_DATA_FORMAT              ; Systemverilog Hdl                      ; --               ; --           ; eda_simulation ;
+; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (SystemVerilog)        ; <None>           ; --           ; --             ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --               ; --           ; --             ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --               ; --           ; --             ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --               ; top_pwm_test ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --               ; top_pwm_test ; Top            ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --               ; top_pwm_test ; Top            ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --               ; --           ; --             ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --               ; --           ; --             ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --               ; --           ; --             ;
+; TOP_LEVEL_ENTITY                    ; top_pwm_test                           ; mixed-iir-filter ; --           ; --             ;
++-------------------------------------+----------------------------------------+------------------+--------------+----------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------+
@@ -90,8 +94,8 @@ https://fpgasoftware.intel.com/eula.
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Elaboration ; 00:00:12     ; 1.0                     ; 4775 MB             ; 00:00:32                           ;
-; Total                  ; 00:00:12     ; --                      ; --                  ; 00:00:32                           ;
+; Analysis & Elaboration ; 00:00:12     ; 1.0                     ; 4779 MB             ; 00:00:33                           ;
+; Total                  ; 00:00:12     ; --                      ; --                  ; 00:00:33                           ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

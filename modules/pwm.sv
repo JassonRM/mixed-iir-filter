@@ -6,17 +6,20 @@ module pwm #(parameter N = 31) (input logic clk, rst,
 											
 	always_ff @(posedge clk)
 	if (rst)
-		count = 0;
+		begin
+			count = 0;
+			eoc = 1;
+		end
 	else 
-	begin
-		pulse = count < digital_in;// ? 1'b1 : 1'b0;
-//		if count < digital_in
-//			pulse = 1'b1;
-//		else
-//			pulse = 1'b0;	
-		count = count + 'b1;
-		eoc = count == 'b0; 
-	end
+		begin
+			pulse = count < digital_in;// ? 1'b1 : 1'b0;
+	//		if count < digital_in
+	//			pulse = 1'b1;
+	//		else
+	//			pulse = 1'b0;	
+			count = count + 'b1;
+			eoc = count == 'b0; 
+		end
 	
 	
 endmodule 

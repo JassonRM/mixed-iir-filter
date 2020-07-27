@@ -1,5 +1,5 @@
 Analysis & Elaboration report for mixed-iir-filter
-Thu Jul 23 18:44:12 2020
+Mon Jul 27 10:19:02 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -10,15 +10,34 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   2. Analysis & Elaboration Summary
   3. Parallel Compilation
   4. Analysis & Elaboration IP Cores Summary
-  5. Source assignments for top:DUT|rom:ROM|altsyncram:altsyncram_component|altsyncram_i5k1:auto_generated
-  6. Parameter Settings for User Entity Instance: top:DUT|rom:ROM|altsyncram:altsyncram_component
-  7. altsyncram Parameter Settings by Entity Instance
-  8. Analysis & Elaboration Settings
-  9. Port Connectivity Checks: "top:DUT|filter:HighPass"
- 10. Port Connectivity Checks: "top:DUT|filter:LowPass|adder:Adder0"
- 11. Port Connectivity Checks: "top:DUT|filter:LowPass"
- 12. Port Connectivity Checks: "top:DUT"
- 13. Analysis & Elaboration Messages
+  5. Source assignments for top_pwm:DUT|rom:ROM|altsyncram:altsyncram_component|altsyncram_g5k1:auto_generated
+  6. Parameter Settings for User Entity Instance: top_pwm:DUT|rom:ROM|altsyncram:altsyncram_component
+  7. Parameter Settings for User Entity Instance: top_pwm:DUT|filter:LowPass
+  8. Parameter Settings for User Entity Instance: top_pwm:DUT|filter:LowPass|adder:Adder0
+  9. Parameter Settings for User Entity Instance: top_pwm:DUT|filter:LowPass|multiply:Multiply1
+ 10. Parameter Settings for User Entity Instance: top_pwm:DUT|filter:LowPass|adder:Adder1
+ 11. Parameter Settings for User Entity Instance: top_pwm:DUT|filter:LowPass|multiply:Multiply2
+ 12. Parameter Settings for User Entity Instance: top_pwm:DUT|filter:LowPass|multiply:Multiply3
+ 13. Parameter Settings for User Entity Instance: top_pwm:DUT|filter:LowPass|adder:Adder2
+ 14. Parameter Settings for User Entity Instance: top_pwm:DUT|filter:LowPass|adder:Adder3
+ 15. Parameter Settings for User Entity Instance: top_pwm:DUT|filter:HighPass
+ 16. Parameter Settings for User Entity Instance: top_pwm:DUT|filter:HighPass|adder:Adder0
+ 17. Parameter Settings for User Entity Instance: top_pwm:DUT|filter:HighPass|multiply:Multiply1
+ 18. Parameter Settings for User Entity Instance: top_pwm:DUT|filter:HighPass|adder:Adder1
+ 19. Parameter Settings for User Entity Instance: top_pwm:DUT|filter:HighPass|multiply:Multiply2
+ 20. Parameter Settings for User Entity Instance: top_pwm:DUT|filter:HighPass|multiply:Multiply3
+ 21. Parameter Settings for User Entity Instance: top_pwm:DUT|filter:HighPass|adder:Adder2
+ 22. Parameter Settings for User Entity Instance: top_pwm:DUT|filter:HighPass|adder:Adder3
+ 23. Parameter Settings for User Entity Instance: top_pwm:DUT|pwm:LowPWM
+ 24. Parameter Settings for User Entity Instance: top_pwm:DUT|pwm:HighPWM
+ 25. altsyncram Parameter Settings by Entity Instance
+ 26. Analysis & Elaboration Settings
+ 27. Port Connectivity Checks: "top_pwm:DUT|filter:HighPass"
+ 28. Port Connectivity Checks: "top_pwm:DUT|filter:LowPass|adder:Adder3"
+ 29. Port Connectivity Checks: "top_pwm:DUT|filter:LowPass|adder:Adder0"
+ 30. Port Connectivity Checks: "top_pwm:DUT|filter:LowPass"
+ 31. Port Connectivity Checks: "top_pwm:DUT"
+ 32. Analysis & Elaboration Messages
 
 
 
@@ -45,10 +64,10 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                              ;
 +-------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status ; Successful - Thu Jul 23 18:44:12 2020       ;
+; Analysis & Elaboration Status ; Successful - Mon Jul 27 10:19:02 2020       ;
 ; Quartus Prime Version         ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                 ; mixed-iir-filter                            ;
-; Top-level Entity Name         ; top_test                                    ;
+; Top-level Entity Name         ; top_pwm_test                                ;
 ; Family                        ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)   ; N/A until Partition Merge                   ;
 ; Total registers               ; N/A until Partition Merge                   ;
@@ -76,26 +95,26 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------+
-; Analysis & Elaboration IP Cores Summary                                                                      ;
-+--------+--------------+---------+--------------+--------------+---------------------------+------------------+
-; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance           ; IP Include File  ;
-+--------+--------------+---------+--------------+--------------+---------------------------+------------------+
-; Altera ; ROM: 1-PORT  ; 20.1    ; N/A          ; N/A          ; |top_test|top:DUT|rom:ROM ; ../modules/rom.v ;
-+--------+--------------+---------+--------------+--------------+---------------------------+------------------+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Elaboration IP Cores Summary                                                                              ;
++--------+--------------+---------+--------------+--------------+-----------------------------------+------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                   ; IP Include File  ;
++--------+--------------+---------+--------------+--------------+-----------------------------------+------------------+
+; Altera ; ROM: 1-PORT  ; 20.1    ; N/A          ; N/A          ; |top_pwm_test|top_pwm:DUT|rom:ROM ; ../modules/rom.v ;
++--------+--------------+---------+--------------+--------------+-----------------------------------+------------------+
 
 
-+-------------------------------------------------------------------------------------------------------+
-; Source assignments for top:DUT|rom:ROM|altsyncram:altsyncram_component|altsyncram_i5k1:auto_generated ;
-+---------------------------------+--------------------+------+-----------------------------------------+
-; Assignment                      ; Value              ; From ; To                                      ;
-+---------------------------------+--------------------+------+-----------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                       ;
-+---------------------------------+--------------------+------+-----------------------------------------+
++-----------------------------------------------------------------------------------------------------------+
+; Source assignments for top_pwm:DUT|rom:ROM|altsyncram:altsyncram_component|altsyncram_g5k1:auto_generated ;
++---------------------------------+--------------------+------+---------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                          ;
++---------------------------------+--------------------+------+---------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                           ;
++---------------------------------+--------------------+------+---------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: top:DUT|rom:ROM|altsyncram:altsyncram_component             ;
+; Parameter Settings for User Entity Instance: top_pwm:DUT|rom:ROM|altsyncram:altsyncram_component         ;
 +------------------------------------+----------------------------------------------------+----------------+
 ; Parameter Name                     ; Value                                              ; Type           ;
 +------------------------------------+----------------------------------------------------+----------------+
@@ -106,7 +125,7 @@ https://fpgasoftware.intel.com/eula.
 ; IGNORE_CASCADE_BUFFERS             ; OFF                                                ; IGNORE_CASCADE ;
 ; WIDTH_BYTEENA                      ; 1                                                  ; Untyped        ;
 ; OPERATION_MODE                     ; ROM                                                ; Untyped        ;
-; WIDTH_A                            ; 16                                                 ; Signed Integer ;
+; WIDTH_A                            ; 23                                                 ; Signed Integer ;
 ; WIDTHAD_A                          ; 15                                                 ; Signed Integer ;
 ; NUMWORDS_A                         ; 20000                                              ; Signed Integer ;
 ; OUTDATA_REG_A                      ; UNREGISTERED                                       ; Untyped        ;
@@ -150,29 +169,209 @@ https://fpgasoftware.intel.com/eula.
 ; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                              ; Untyped        ;
 ; WIDTH_ECCSTATUS                    ; 3                                                  ; Untyped        ;
 ; DEVICE_FAMILY                      ; Cyclone V                                          ; Untyped        ;
-; CBXI_PARAMETER                     ; altsyncram_i5k1                                    ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_g5k1                                    ; Untyped        ;
 +------------------------------------+----------------------------------------------------+----------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_pwm:DUT|filter:LowPass ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; WIDTH          ; 31    ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_pwm:DUT|filter:LowPass|adder:Adder0 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; WIDTH          ; 31    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_pwm:DUT|filter:LowPass|multiply:Multiply1 ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; WIDTH          ; 31    ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_pwm:DUT|filter:LowPass|adder:Adder1 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; WIDTH          ; 31    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_pwm:DUT|filter:LowPass|multiply:Multiply2 ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; WIDTH          ; 31    ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_pwm:DUT|filter:LowPass|multiply:Multiply3 ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; WIDTH          ; 31    ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_pwm:DUT|filter:LowPass|adder:Adder2 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; WIDTH          ; 31    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_pwm:DUT|filter:LowPass|adder:Adder3 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; WIDTH          ; 31    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_pwm:DUT|filter:HighPass ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; WIDTH          ; 31    ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_pwm:DUT|filter:HighPass|adder:Adder0 ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; WIDTH          ; 31    ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +---------------------------------------------------------------------------------------------+
-; altsyncram Parameter Settings by Entity Instance                                            ;
-+-------------------------------------------+-------------------------------------------------+
-; Name                                      ; Value                                           ;
-+-------------------------------------------+-------------------------------------------------+
-; Number of entity instances                ; 1                                               ;
-; Entity Instance                           ; top:DUT|rom:ROM|altsyncram:altsyncram_component ;
-;     -- OPERATION_MODE                     ; ROM                                             ;
-;     -- WIDTH_A                            ; 16                                              ;
-;     -- NUMWORDS_A                         ; 20000                                           ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                    ;
-;     -- WIDTH_B                            ; 1                                               ;
-;     -- NUMWORDS_B                         ; 1                                               ;
-;     -- ADDRESS_REG_B                      ; CLOCK1                                          ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                    ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                            ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                       ;
-+-------------------------------------------+-------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_pwm:DUT|filter:HighPass|multiply:Multiply1 ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; WIDTH          ; 31    ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_pwm:DUT|filter:HighPass|adder:Adder1 ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; WIDTH          ; 31    ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_pwm:DUT|filter:HighPass|multiply:Multiply2 ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; WIDTH          ; 31    ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_pwm:DUT|filter:HighPass|multiply:Multiply3 ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; WIDTH          ; 31    ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_pwm:DUT|filter:HighPass|adder:Adder2 ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; WIDTH          ; 31    ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_pwm:DUT|filter:HighPass|adder:Adder3 ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; WIDTH          ; 31    ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_pwm:DUT|pwm:LowPWM ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; N              ; 23    ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_pwm:DUT|pwm:HighPWM ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; N              ; 23    ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                ;
++-------------------------------------------+-----------------------------------------------------+
+; Name                                      ; Value                                               ;
++-------------------------------------------+-----------------------------------------------------+
+; Number of entity instances                ; 1                                                   ;
+; Entity Instance                           ; top_pwm:DUT|rom:ROM|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; ROM                                                 ;
+;     -- WIDTH_A                            ; 23                                                  ;
+;     -- NUMWORDS_A                         ; 20000                                               ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                        ;
+;     -- WIDTH_B                            ; 1                                                   ;
+;     -- NUMWORDS_B                         ; 1                                                   ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                              ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                        ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                           ;
++-------------------------------------------+-----------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -181,7 +380,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
-; Top-level entity name                                                           ; top_test           ; mixed-iir-filter   ;
+; Top-level entity name                                                           ; top_pwm_test       ; mixed-iir-filter   ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
@@ -262,63 +461,105 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+-----------------------------------------------------+
-; Port Connectivity Checks: "top:DUT|filter:HighPass" ;
-+-----------+-------+----------+----------------------+
-; Port      ; Type  ; Severity ; Details              ;
-+-----------+-------+----------+----------------------+
-; a1[7..3]  ; Input ; Info     ; Stuck at VCC         ;
-; a1[14..8] ; Input ; Info     ; Stuck at GND         ;
-; a1[2..0]  ; Input ; Info     ; Stuck at GND         ;
-; a1[15]    ; Input ; Info     ; Stuck at VCC         ;
-; b0[7..2]  ; Input ; Info     ; Stuck at VCC         ;
-; b0[15..8] ; Input ; Info     ; Stuck at GND         ;
-; b0[1..0]  ; Input ; Info     ; Stuck at GND         ;
-; b1[7..2]  ; Input ; Info     ; Stuck at VCC         ;
-; b1[14..8] ; Input ; Info     ; Stuck at GND         ;
-; b1[1..0]  ; Input ; Info     ; Stuck at GND         ;
-; b1[15]    ; Input ; Info     ; Stuck at VCC         ;
-+-----------+-------+----------+----------------------+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "top_pwm:DUT|filter:HighPass"                                                              ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; x[31..23]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; a1[15..11] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; a1[30..16] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; a1[10..5]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; a1[31]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; a1[4]      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; a1[3]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; a1[2]      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; a1[1]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; a1[0]      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; b0[15..10] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; b0[31..16] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; b0[9..4]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; b0[3]      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; b0[2]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; b0[1]      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; b0[0]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; b1[15..10] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; b1[31..16] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; b1[9..4]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; b1[3]      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; b1[2]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; b1[1]      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; b1[0]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; y[31..23]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------+
-; Port Connectivity Checks: "top:DUT|filter:LowPass|adder:Adder0" ;
-+----------------+-------+----------+-----------------------------+
-; Port           ; Type  ; Severity ; Details                     ;
-+----------------+-------+----------+-----------------------------+
-; inputB[14..10] ; Input ; Info     ; Stuck at GND                ;
-; inputB[6..0]   ; Input ; Info     ; Stuck at GND                ;
-; inputB[15]     ; Input ; Info     ; Stuck at VCC                ;
-; inputB[9]      ; Input ; Info     ; Stuck at VCC                ;
-; inputB[8]      ; Input ; Info     ; Stuck at GND                ;
-; inputB[7]      ; Input ; Info     ; Stuck at VCC                ;
-+----------------+-------+----------+-----------------------------+
++---------------------------------------------------------------------+
+; Port Connectivity Checks: "top_pwm:DUT|filter:LowPass|adder:Adder3" ;
++----------------+-------+----------+---------------------------------+
+; Port           ; Type  ; Severity ; Details                         ;
++----------------+-------+----------+---------------------------------+
+; inputB[31..18] ; Input ; Info     ; Stuck at GND                    ;
+; inputB[14..0]  ; Input ; Info     ; Stuck at GND                    ;
+; inputB[17]     ; Input ; Info     ; Stuck at VCC                    ;
+; inputB[16]     ; Input ; Info     ; Stuck at GND                    ;
+; inputB[15]     ; Input ; Info     ; Stuck at VCC                    ;
++----------------+-------+----------+---------------------------------+
 
 
-+----------------------------------------------------+
-; Port Connectivity Checks: "top:DUT|filter:LowPass" ;
-+-----------+-------+----------+---------------------+
-; Port      ; Type  ; Severity ; Details             ;
-+-----------+-------+----------+---------------------+
-; a1[7..3]  ; Input ; Info     ; Stuck at VCC        ;
-; a1[14..8] ; Input ; Info     ; Stuck at GND        ;
-; a1[2..0]  ; Input ; Info     ; Stuck at GND        ;
-; a1[15]    ; Input ; Info     ; Stuck at VCC        ;
-; b0[1..0]  ; Input ; Info     ; Stuck at VCC        ;
-; b0[15..2] ; Input ; Info     ; Stuck at GND        ;
-; b1[1..0]  ; Input ; Info     ; Stuck at VCC        ;
-; b1[15..2] ; Input ; Info     ; Stuck at GND        ;
-+-----------+-------+----------+---------------------+
++---------------------------------------------------------------------+
+; Port Connectivity Checks: "top_pwm:DUT|filter:LowPass|adder:Adder0" ;
++----------------+-------+----------+---------------------------------+
+; Port           ; Type  ; Severity ; Details                         ;
++----------------+-------+----------+---------------------------------+
+; inputB[30..18] ; Input ; Info     ; Stuck at GND                    ;
+; inputB[14..0]  ; Input ; Info     ; Stuck at GND                    ;
+; inputB[31]     ; Input ; Info     ; Stuck at VCC                    ;
+; inputB[17]     ; Input ; Info     ; Stuck at VCC                    ;
+; inputB[16]     ; Input ; Info     ; Stuck at GND                    ;
+; inputB[15]     ; Input ; Info     ; Stuck at VCC                    ;
++----------------+-------+----------+---------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "top:DUT"                                                                                 ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port      ; Type   ; Severity ; Details                                                                             ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; low_pass  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; high_pass ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "top_pwm:DUT|filter:LowPass"                                                               ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; x[31..23]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; a1[15..11] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; a1[30..16] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; a1[10..5]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; a1[31]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; a1[4]      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; a1[3]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; a1[2]      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; a1[1]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; a1[0]      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; b0[9..4]   ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; b0[31..10] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; b0[3]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; b0[2]      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; b0[1]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; b0[0]      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; b1[9..4]   ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; b1[31..10] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; b1[3]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; b1[2]      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; b1[1]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; b1[0]      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; y[31..23]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "top_pwm:DUT"                                                                                 ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; low_pass_pwm  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; high_pass_pwm ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +---------------------------------+
@@ -327,12 +568,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Thu Jul 23 18:44:00 2020
+    Info: Processing started: Mon Jul 27 10:18:50 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off mixed-iir-filter -c mixed-iir-filter --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /mixed-iir-filter/modules/pwm_test.sv
+    Info (12023): Found entity 1: pwm_test File: A:/mixed-iir-filter/modules/pwm_test.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file /mixed-iir-filter/modules/pwm.sv
+    Info (12023): Found entity 1: pwm File: A:/mixed-iir-filter/modules/pwm.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /mixed-iir-filter/modules/top_test.sv
     Info (12023): Found entity 1: top_test File: A:/mixed-iir-filter/modules/top_test.sv Line: 3
+Warning (10229): Verilog HDL Expression warning at top.sv(12): truncated literal to match 32 bits File: A:/mixed-iir-filter/modules/top.sv Line: 12
 Info (12021): Found 1 design units, including 1 entities, in source file /mixed-iir-filter/modules/top.sv
     Info (12023): Found entity 1: top File: A:/mixed-iir-filter/modules/top.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /mixed-iir-filter/modules/rom.v
@@ -349,15 +595,20 @@ Info (12021): Found 1 design units, including 1 entities, in source file /mixed-
     Info (12023): Found entity 1: adder_test File: A:/mixed-iir-filter/modules/adder_test.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /mixed-iir-filter/modules/adder.sv
     Info (12023): Found entity 1: adder File: A:/mixed-iir-filter/modules/adder.sv Line: 1
-Info (12127): Elaborating entity "top_test" for the top level hierarchy
-Warning (10755): Verilog HDL warning at top_test.sv(25): assignments to clk create a combinational loop File: A:/mixed-iir-filter/modules/top_test.sv Line: 25
-Warning (10175): Verilog HDL warning at top_test.sv(29): ignoring unsupported system task File: A:/mixed-iir-filter/modules/top_test.sv Line: 29
-Warning (10175): Verilog HDL warning at top_test.sv(30): ignoring unsupported system task File: A:/mixed-iir-filter/modules/top_test.sv Line: 30
-Info (12128): Elaborating entity "top" for hierarchy "top:DUT" File: A:/mixed-iir-filter/modules/top_test.sv Line: 8
-Info (12128): Elaborating entity "rom" for hierarchy "top:DUT|rom:ROM" File: A:/mixed-iir-filter/modules/top.sv Line: 8
-Info (12128): Elaborating entity "altsyncram" for hierarchy "top:DUT|rom:ROM|altsyncram:altsyncram_component" File: A:/mixed-iir-filter/modules/rom.v Line: 82
-Info (12130): Elaborated megafunction instantiation "top:DUT|rom:ROM|altsyncram:altsyncram_component" File: A:/mixed-iir-filter/modules/rom.v Line: 82
-Info (12133): Instantiated megafunction "top:DUT|rom:ROM|altsyncram:altsyncram_component" with the following parameter: File: A:/mixed-iir-filter/modules/rom.v Line: 82
+Warning (10229): Verilog HDL Expression warning at top_pwm.sv(14): truncated literal to match 32 bits File: A:/mixed-iir-filter/modules/top_pwm.sv Line: 14
+Info (12021): Found 1 design units, including 1 entities, in source file /mixed-iir-filter/modules/top_pwm.sv
+    Info (12023): Found entity 1: top_pwm File: A:/mixed-iir-filter/modules/top_pwm.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /mixed-iir-filter/modules/top_pwm_test.sv
+    Info (12023): Found entity 1: top_pwm_test File: A:/mixed-iir-filter/modules/top_pwm_test.sv Line: 3
+Info (12127): Elaborating entity "top_pwm_test" for the top level hierarchy
+Warning (10755): Verilog HDL warning at top_pwm_test.sv(24): assignments to clk create a combinational loop File: A:/mixed-iir-filter/modules/top_pwm_test.sv Line: 24
+Warning (10175): Verilog HDL warning at top_pwm_test.sv(28): ignoring unsupported system task File: A:/mixed-iir-filter/modules/top_pwm_test.sv Line: 28
+Warning (10175): Verilog HDL warning at top_pwm_test.sv(29): ignoring unsupported system task File: A:/mixed-iir-filter/modules/top_pwm_test.sv Line: 29
+Info (12128): Elaborating entity "top_pwm" for hierarchy "top_pwm:DUT" File: A:/mixed-iir-filter/modules/top_pwm_test.sv Line: 7
+Info (12128): Elaborating entity "rom" for hierarchy "top_pwm:DUT|rom:ROM" File: A:/mixed-iir-filter/modules/top_pwm.sv Line: 10
+Info (12128): Elaborating entity "altsyncram" for hierarchy "top_pwm:DUT|rom:ROM|altsyncram:altsyncram_component" File: A:/mixed-iir-filter/modules/rom.v Line: 82
+Info (12130): Elaborated megafunction instantiation "top_pwm:DUT|rom:ROM|altsyncram:altsyncram_component" File: A:/mixed-iir-filter/modules/rom.v Line: 82
+Info (12133): Instantiated megafunction "top_pwm:DUT|rom:ROM|altsyncram:altsyncram_component" with the following parameter: File: A:/mixed-iir-filter/modules/rom.v Line: 82
     Info (12134): Parameter "address_aclr_a" = "NONE"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
@@ -370,26 +621,28 @@ Info (12133): Instantiated megafunction "top:DUT|rom:ROM|altsyncram:altsyncram_c
     Info (12134): Parameter "outdata_aclr_a" = "NONE"
     Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
     Info (12134): Parameter "widthad_a" = "15"
-    Info (12134): Parameter "width_a" = "16"
+    Info (12134): Parameter "width_a" = "23"
     Info (12134): Parameter "width_byteena_a" = "1"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_i5k1.tdf
-    Info (12023): Found entity 1: altsyncram_i5k1 File: A:/mixed-iir-filter/quartus_project/db/altsyncram_i5k1.tdf Line: 32
-Info (12128): Elaborating entity "altsyncram_i5k1" for hierarchy "top:DUT|rom:ROM|altsyncram:altsyncram_component|altsyncram_i5k1:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_g5k1.tdf
+    Info (12023): Found entity 1: altsyncram_g5k1 File: A:/mixed-iir-filter/quartus_project/db/altsyncram_g5k1.tdf Line: 32
+Info (12128): Elaborating entity "altsyncram_g5k1" for hierarchy "top_pwm:DUT|rom:ROM|altsyncram:altsyncram_component|altsyncram_g5k1:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_01a.tdf
     Info (12023): Found entity 1: decode_01a File: A:/mixed-iir-filter/quartus_project/db/decode_01a.tdf Line: 23
-Info (12128): Elaborating entity "decode_01a" for hierarchy "top:DUT|rom:ROM|altsyncram:altsyncram_component|altsyncram_i5k1:auto_generated|decode_01a:rden_decode" File: A:/mixed-iir-filter/quartus_project/db/altsyncram_i5k1.tdf Line: 40
-Info (12021): Found 1 design units, including 1 entities, in source file db/mux_6hb.tdf
-    Info (12023): Found entity 1: mux_6hb File: A:/mixed-iir-filter/quartus_project/db/mux_6hb.tdf Line: 23
-Info (12128): Elaborating entity "mux_6hb" for hierarchy "top:DUT|rom:ROM|altsyncram:altsyncram_component|altsyncram_i5k1:auto_generated|mux_6hb:mux2" File: A:/mixed-iir-filter/quartus_project/db/altsyncram_i5k1.tdf Line: 41
-Info (12128): Elaborating entity "filter" for hierarchy "top:DUT|filter:LowPass" File: A:/mixed-iir-filter/modules/top.sv Line: 10
-Info (12128): Elaborating entity "adder" for hierarchy "top:DUT|filter:LowPass|adder:Adder0" File: A:/mixed-iir-filter/modules/filter.sv Line: 7
-Info (12128): Elaborating entity "multiply" for hierarchy "top:DUT|filter:LowPass|multiply:Multiply1" File: A:/mixed-iir-filter/modules/filter.sv Line: 9
+Info (12128): Elaborating entity "decode_01a" for hierarchy "top_pwm:DUT|rom:ROM|altsyncram:altsyncram_component|altsyncram_g5k1:auto_generated|decode_01a:rden_decode" File: A:/mixed-iir-filter/quartus_project/db/altsyncram_g5k1.tdf Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_4hb.tdf
+    Info (12023): Found entity 1: mux_4hb File: A:/mixed-iir-filter/quartus_project/db/mux_4hb.tdf Line: 23
+Info (12128): Elaborating entity "mux_4hb" for hierarchy "top_pwm:DUT|rom:ROM|altsyncram:altsyncram_component|altsyncram_g5k1:auto_generated|mux_4hb:mux2" File: A:/mixed-iir-filter/quartus_project/db/altsyncram_g5k1.tdf Line: 41
+Info (12128): Elaborating entity "filter" for hierarchy "top_pwm:DUT|filter:LowPass" File: A:/mixed-iir-filter/modules/top_pwm.sv Line: 12
+Info (12128): Elaborating entity "adder" for hierarchy "top_pwm:DUT|filter:LowPass|adder:Adder0" File: A:/mixed-iir-filter/modules/filter.sv Line: 7
+Info (12128): Elaborating entity "multiply" for hierarchy "top_pwm:DUT|filter:LowPass|multiply:Multiply1" File: A:/mixed-iir-filter/modules/filter.sv Line: 9
+Info (12128): Elaborating entity "pwm" for hierarchy "top_pwm:DUT|pwm:LowPWM" File: A:/mixed-iir-filter/modules/top_pwm.sv Line: 16
+Warning (10230): Verilog HDL assignment warning at pwm.sv(20): truncated value with size 32 to match size of target (23) File: A:/mixed-iir-filter/modules/pwm.sv Line: 20
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "clk" is missing source, defaulting to GND File: A:/mixed-iir-filter/modules/top_test.sv Line: 5
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 4775 megabytes
-    Info: Processing ended: Thu Jul 23 18:44:12 2020
+    Warning (12110): Net "clk" is missing source, defaulting to GND File: A:/mixed-iir-filter/modules/top_pwm_test.sv Line: 5
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 9 warnings
+    Info: Peak virtual memory: 4779 megabytes
+    Info: Processing ended: Mon Jul 27 10:19:02 2020
     Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:32
+    Info: Total CPU time (on all processors): 00:00:33
 
 
