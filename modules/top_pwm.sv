@@ -13,11 +13,11 @@ filter LowPass(clk_low_pass, filter_rst, {9'b0, x}, 32'b100000000000000011111000
 
 filter HighPass(clk_high_pass, filter_rst, {9'b0, x}, 32'b10000000000000001111100000010101, 32'b1111110000001010, 32'b100000000000000001111110000001010, high_pass);
 
-pwm #(23) LowPWM (clk, rst, low_pass[22:0], clk_low_pass, low_pass_pwm);
+pwm #(6) LowPWM (clk, rst, low_pass[18:13], clk_low_pass, low_pass_pwm);
 
-pwm #(23) HighPWM (clk, rst, high_pass[22:0], clk_high_pass, high_pass_pwm);
+pwm #(6) HighPWM (clk, rst, high_pass[18:13], clk_high_pass, high_pass_pwm);
 
-always_ff @(posedge clk)
+always_ff @(posedge clk_low_pass)
 	if(rst)
 		address = 15'd0;
 	else
