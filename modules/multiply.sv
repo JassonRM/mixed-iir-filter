@@ -19,7 +19,7 @@ always_comb
 		mid = a * d + b * c;
 		low = b * d;
 		mult = (high << (WIDTH / 2 + 1)) + mid + (low >> (WIDTH / 2 + 1));
-		if(mult > 'b111111111111111)
+		if(mult > {WIDTH{1'b1}})
 			result = {sign, {WIDTH{1'b1}}};
 		else
 			result = {sign, mult[WIDTH - 1:0]};

@@ -1,9 +1,9 @@
-function plot_filter(filename, int_part)
+function filtered = process_output(filename, int_part)
   file = fopen(filename, 'r');
   a = textscan(file, "%s");
   a = a{1};
   
-  low_pass = [];
+  filtered = [];
   int_part = int_part+1;
   for i = 1:size(a)(1)
     number = a{i};
@@ -21,10 +21,7 @@ function plot_filter(filename, int_part)
         dec = dec + 2**(-dec_index);
       endif
     endfor
-    dec;
-    low_pass = [low_pass dec];
-   
+    filtered = [filtered; dec];
   endfor
-  plot(low_pass);
   
  endfunction

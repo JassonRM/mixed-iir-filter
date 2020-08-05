@@ -16,8 +16,8 @@ initial begin
 	#3 rst = 0;
 	#260 filter_rst = 0;
 	// synthesis translate_off
-	low_data = $fopen("A:/mixed-iir-filter/low_pass.txt");
-	high_data = $fopen("A:/mixed-iir-filter/high_pass.txt");
+	low_data = $fopen("/home/marco/Documents/Projects/mixed-iir-filter/multisim/low_pass.txt");
+	high_data = $fopen("/home/marco/Documents/Projects/mixed-iir-filter/multisim/high_pass.txt");
 	// synthesis translate_on
 	end
 
