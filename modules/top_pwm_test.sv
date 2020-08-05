@@ -1,4 +1,4 @@
-`timescale 1 ps/ 1 ps
+`timescale 1 ns/ 1 ns
 
 module top_pwm_test;
 
@@ -9,31 +9,31 @@ top_pwm DUT(clk, rst, filter_rst, low_pass, high_pass);
 integer low_data, high_data;
 
 initial begin
-	$timeformat(-12, 0, "ps", 3);
+	$timeformat(-9, 0, "ns", 3);
 	clk = 0;
 	rst = 1;
 	filter_rst = 1;
-	#3 rst = 0;
-	#260 filter_rst = 0;
+	#300 rst = 0;
+	#24960 filter_rst = 0;
 	// synthesis translate_off
-	low_data = $fopen("/home/marco/Documents/Projects/mixed-iir-filter/multisim/low_pass.txt");
-	high_data = $fopen("/home/marco/Documents/Projects/mixed-iir-filter/multisim/high_pass.txt");
+	low_data = $fopen("A:/mixed-iir-filter/multisim/low_pass.txt");
+	high_data = $fopen("A:/mixed-iir-filter/multisim/high_pass.txt");
 	// synthesis translate_on
 	end
 
 always
-	#2 clk = !clk;
+	#195 clk = !clk;
 
 always_ff @(posedge clk)
 	begin
 		if(low_pass != lp_old)
 			begin
-				$fdisplay(low_data, " %t %1dV", $time - 2, 5 * lp_old);
+				$fdisplay(low_data, " %t %1dV", $time - 1, 5 * lp_old);
 				$fdisplay(low_data, " %t %1dV", $time, 5 * low_pass);
 			end
 		if(high_pass != hp_old)
 			begin
-				$fdisplay(high_data, " %t %1dV", $time - 2, 5 * lp_old);
+				$fdisplay(high_data, " %t %1dV", $time - 1, 5 * hp_old);
 				$fdisplay(high_data, " %t %1dV", $time, 5 * high_pass);
 			end
 			
